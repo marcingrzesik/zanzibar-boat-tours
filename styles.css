@@ -274,3 +274,8 @@ summary{cursor:pointer; font-weight:800}
   .burger{display:inline-flex}
   .mobileMenu.show{display:block}
 }
+.lead--pl{
+  color: rgba(233,242,244,.70);
+  font-size: 14px;
+  margin-top: -6px;
+}
