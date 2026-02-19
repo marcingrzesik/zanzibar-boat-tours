@@ -1,5 +1,5 @@
 // 1) Replace with your friend's real WhatsApp number (international format, no +, no spaces)
-const WHATSAPP_NUMBER = "255700000000"; // e.g. 2557XXXXXXXX
+const WHATSAPP_NUMBER = "+255622702571"; // e.g. 2557XXXXXXXX
 
 function makeWhatsAppLink(message) {
   const base = "https://wa.me/";
