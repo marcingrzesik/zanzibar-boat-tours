@@ -396,3 +396,26 @@ summary{cursor:pointer; font-weight:800}
   border-radius:14px;
   display:inline-block;
 }
+
+.lang{
+  display:flex;
+  gap:8px;
+  align-items:center;
+}
+
+.lang__btn{
+  border:1px solid var(--line);
+  background: rgba(255,255,255,.06);
+  color: rgba(233,242,244,.9);
+  padding:8px 10px;
+  border-radius: 12px;
+  font-weight: 800;
+  cursor:pointer;
+}
+
+.lang__btn.is-active{
+  background: rgba(255,255,255,.14);
+}
+
+body.lang-en .lang-pl{ display:none; }
+body.lang-pl .lang-pl{ display:block; }
