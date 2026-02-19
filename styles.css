@@ -364,3 +364,24 @@ summary{cursor:pointer; font-weight:800}
   .location{grid-template-columns: 1fr;}
   .location__map iframe{min-height: 260px;}
 }
+
+.reviewBox{
+  border:1px solid var(--line);
+  background: rgba(255,255,255,.05);
+  border-radius: var(--radius);
+  padding:20px;
+  max-width:700px;
+}
+
+.reviewActions{
+  display:flex;
+  gap:12px;
+  margin:16px 0 12px;
+  flex-wrap:wrap;
+}
+
+.reviewPL{
+  color: rgba(233,242,244,.70);
+  font-size: 14px;
+  margin-top: 10px;
+}
