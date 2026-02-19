@@ -69,3 +69,27 @@ setWhatsAppLinks();
 setYear();
 setupCopyTemplate();
 setupMobileMenu();
+
+function setupLanguageToggle(){
+  const enBtn = document.getElementById("langEN");
+  const plBtn = document.getElementById("langPL");
+
+  // default EN
+  document.body.classList.add("lang-en");
+
+  function setLang(lang){
+    document.body.classList.remove("lang-en","lang-pl");
+    document.body.classList.add(lang === "pl" ? "lang-pl" : "lang-en");
+
+    if (enBtn && plBtn){
+      enBtn.classList.toggle("is-active", lang !== "pl");
+      plBtn.classList.toggle("is-active", lang === "pl");
+    }
+  }
+
+  enBtn && enBtn.addEventListener("click", () => setLang("en"));
+  plBtn && plBtn.addEventListener("click", () => setLang("pl"));
+}
+
+setupLanguageToggle();
+
