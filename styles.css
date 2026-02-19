@@ -385,3 +385,14 @@ summary{cursor:pointer; font-weight:800}
   font-size: 14px;
   margin-top: 10px;
 }
+
+.limited{
+  margin-top:14px;
+  font-weight:700;
+  color:#ffcf66;
+  background: rgba(255, 207, 102, 0.08);
+  border:1px solid rgba(255, 207, 102, 0.25);
+  padding:10px 14px;
+  border-radius:14px;
+  display:inline-block;
+}
