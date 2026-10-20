@@ -1,95 +1,40 @@
-// 1) Replace with your friend's real WhatsApp number (international format, no +, no spaces)
-const WHATSAPP_NUMBER = "255622702571"; // e.g. 2557XXXXXXXX
-
-function makeWhatsAppLink(message) {
-  const base = "https://wa.me/";
-  const text = encodeURIComponent(message);
-  return `${base}${WHATSAPP_NUMBER}?text=${text}`;
-}
-
-function setWhatsAppLinks() {
-  const defaultMsg =
-    "Hi! I’d like to book a tour in Zanzibar. Date: __/__/__. Hotel: ____. People: __. Which tours are available today? Thanks!";
-
-  const top = document.getElementById("whatsappTop");
-  const bottom = document.getElementById("whatsappBottom");
-  const sticky = document.getElementById("stickyWA");
-
-  [top, bottom, sticky].forEach((el) => {
-    if (!el) return;
-    el.href = makeWhatsAppLink(defaultMsg);
+'use strict';
+const number = '255622702571';
+let language = 'en';
+const whatsapp = message => `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
+function setLanguage(lang) {
+  language = lang === 'pl' ? 'pl' : 'en';
+  document.documentElement.lang = language;
+  document.querySelectorAll('[data-en][data-pl]').forEach(el => {el.textContent = el.dataset[language];});
+  document.querySelectorAll('[data-lang]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.lang === language)));
+  document.title = language === 'pl' ? 'Captain Busara | Atrakcje Zanzibaru · Kendwa Beach' : 'Captain Busara | Zanzibar Experiences · Kendwa Beach';
+  document.querySelectorAll('.tour-link').forEach(link => {
+    link.href = whatsapp(language === 'pl' ? `Cześć Busara! Interesuje mnie: ${link.dataset.tour}. Proszę o dostępność, zakres i cenę. Data: __. Osoby: __. Hotel: __.` : `Hi Busara! I am interested in: ${link.dataset.tour}. Please confirm availability, inclusions and price. Date: __. People: __. Hotel: __.`);
   });
-
-  document.querySelectorAll(".wa").forEach((btn) => {
-    const tour = btn.getAttribute("data-tour") || "a tour";
-    const msg =
-      `Hi! I’d like to book: ${tour}. ` +
-      "Date: __/__/__. Hotel: ____. People: __. Private or group? Price please. Thanks!";
-    btn.href = makeWhatsAppLink(msg);
-  });
+  try { localStorage.setItem('busara-language', language); } catch {}
 }
-
-function setYear() {
-  const y = document.getElementById("year");
-  if (y) y.textContent = new Date().getFullYear();
-}
-
-function setupCopyTemplate() {
-  const btn = document.getElementById("copyBtn");
-  const text = document.getElementById("templateText");
-  if (!btn || !text) return;
-
-  btn.addEventListener("click", async () => {
-    try {
-      await navigator.clipboard.writeText(text.textContent.trim());
-      btn.textContent = "Copied ✅";
-      setTimeout(() => (btn.textContent = "Copy"), 1400);
-    } catch {
-      btn.textContent = "Copy manually";
-      setTimeout(() => (btn.textContent = "Copy"), 1400);
-    }
-  });
-}
-
-function setupMobileMenu() {
-  const burger = document.getElementById("burger");
-  const menu = document.getElementById("mobileMenu");
-  if (!burger || !menu) return;
-
-  burger.addEventListener("click", () => {
-    menu.classList.toggle("show");
-  });
-
-  menu.querySelectorAll("a").forEach((a) =>
-    a.addEventListener("click", () => menu.classList.remove("show"))
-  );
-}
-
-setWhatsAppLinks();
-setYear();
-setupCopyTemplate();
-setupMobileMenu();
-
-function setupLanguageToggle(){
-  const enBtn = document.getElementById("langEN");
-  const plBtn = document.getElementById("langPL");
-
-  // default EN
-  document.body.classList.add("lang-en");
-
-  function setLang(lang){
-    document.body.classList.remove("lang-en","lang-pl");
-    document.body.classList.add(lang === "pl" ? "lang-pl" : "lang-en");
-
-    if (enBtn && plBtn){
-      enBtn.classList.toggle("is-active", lang !== "pl");
-      plBtn.classList.toggle("is-active", lang === "pl");
-    }
-  }
-
-  enBtn && enBtn.addEventListener("click", () => setLang("en"));
-  plBtn && plBtn.addEventListener("click", () => setLang("pl"));
-}
-
-setupLanguageToggle();
-
+document.querySelectorAll('[data-lang]').forEach(button => button.addEventListener('click', () => setLanguage(button.dataset.lang)));
+let initialLanguage = 'en';
+try { initialLanguage = localStorage.getItem('busara-language') || 'en'; } catch {}
+setLanguage(initialLanguage);
+document.getElementById('year').textContent = new Date().getFullYear();
+const menu = document.getElementById('menu');
+const mobileNav = document.getElementById('mobile-nav');
+function closeMenu(){mobileNav.hidden = true;menu.setAttribute('aria-expanded','false');}
+menu.addEventListener('click', () => {const open = menu.getAttribute('aria-expanded') !== 'true';menu.setAttribute('aria-expanded',String(open));mobileNav.hidden = !open;});
+mobileNav.querySelectorAll('a').forEach(link => link.addEventListener('click',closeMenu));
+document.addEventListener('keydown',event=>{if(event.key==='Escape'){closeMenu();menu.focus();}});
+const form = document.getElementById('booking-form');
+const date = form.elements.date;
+const today = new Date();
+const localDate = new Date(today.getTime()-today.getTimezoneOffset()*60000).toISOString().slice(0,10);
+date.min = localDate;
+form.addEventListener('submit', event => {
+  event.preventDefault();
+  if (!form.reportValidity()) return;
+  const data = new FormData(form);
+  const message = language === 'pl'
+    ? `Cześć Busara! Chcę zapytać o wycieczkę.\nAtrakcja: ${data.get('experience')}\nData: ${data.get('date')}\nLiczba osób: ${data.get('people')}\nHotel / okolica: ${data.get('hotel')}\nDodatkowe informacje: ${data.get('notes') || '—'}\nProszę o potwierdzenie dostępności, pełnej ceny, zakresu i zasad rezerwacji.`
+    : `Hi Busara! I would like to enquire about a trip.\nExperience: ${data.get('experience')}\nDate: ${data.get('date')}\nPeople: ${data.get('people')}\nHotel / area: ${data.get('hotel')}\nNotes: ${data.get('notes') || '—'}\nPlease confirm availability, total price, inclusions and booking terms.`;
+  window.location.assign(whatsapp(message));
+});
