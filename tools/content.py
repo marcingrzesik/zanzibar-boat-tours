@@ -29,7 +29,7 @@ IMAGES = {
     "baobab": (507, 338), "starfish": (189, 290), "kayak-flowers": (1200, 900),
     "kayak-couple": (1200, 900), "jozani-monkeys": (1200, 900), "jozani-colobus": (1200, 779),
     "stone-town": (669, 446), "spice-fruit": (474, 395), "water-car": (1200, 900),
-    "horse-beach": (1200, 750), "horse-pier": (1200, 750),
+    "horse-beach": (1200, 750), "horse-pier": (1200, 750), "horse-aerial": (800, 1422),
     "logo": (480, 480),
 }
 
@@ -319,6 +319,7 @@ TOURS = [
 
 # ---------------------------------------------------------------- Gallery
 GALLERY = [
+    ("horse-aerial", ("Aerial view of Kendwa Beach with a horse ride in the shallows", "Plaża Kendwa z lotu ptaka i przejażdżka konna w płytkiej wodzie")),
     ("horse-pier", ("Horse ride on the beach by a stilt restaurant", "Przejażdżka konna po plaży przy restauracji na palach")),
     ("mnemba-island", ("Mnemba Island and a traditional dhow", "Wyspa Mnemba i tradycyjna łódź dhow")),
     ("dolphins", ("Dolphins near Mnemba", "Delfiny w okolicach Mnemba")),
