@@ -333,17 +333,8 @@ GALLERY = [
 # ---------------------------------------------------------------- Reviews
 # Only entries with verified=True are shown on the site. Set verified=True once you've confirmed
 # the review is real (ideally a copy of a Google review). Never publish invented reviews.
-REVIEWS = [
-    dict(verified=False, name="Anna", country=("Poland", "Polska"),
-         text=("Best day in Zanzibar — perfect spots, great captain, felt safe and taken care of.",
-               "Najlepszy dzień na Zanzibarze — idealne miejsca, świetny kapitan, czułam się bezpiecznie i zaopiekowana.")),
-    dict(verified=False, name="James", country=("UK", "Wielka Brytania"),
-         text=("Amazing snorkeling near Mnemba. Easy booking on WhatsApp, everything on time.",
-               "Niesamowity snorkeling przy Mnemba. Łatwa rezerwacja na WhatsApp, wszystko o czasie.")),
-    dict(verified=False, name="Sofia", country=("Italy", "Włochy"),
-         text=("Sunset cruise was magical. Highly recommend for couples.",
-               "Rejs o zachodzie słońca był magiczny. Gorąco polecam parom.")),
-]
+# Add only real, verified guest reviews here: dict(verified=True, name=..., country=(EN, PL), text=(EN, PL))
+REVIEWS = []
 
 # ---------------------------------------------------------------- FAQ
 FAQ = [
