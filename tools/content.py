@@ -29,6 +29,7 @@ IMAGES = {
     "baobab": (507, 338), "starfish": (189, 290), "kayak-flowers": (1200, 900),
     "kayak-couple": (1200, 900), "jozani-monkeys": (1200, 900), "jozani-colobus": (1200, 779),
     "stone-town": (669, 446), "spice-fruit": (474, 395), "water-car": (1200, 900),
+    "horse-beach": (1200, 750), "horse-pier": (1200, 750),
     "logo": (480, 480),
 }
 
@@ -230,6 +231,8 @@ S = {
     "con_hours_s": ("Fast reply on WhatsApp", "Szybka odpowiedź na WhatsApp"),
     "con_safe_t": ("🛟 Safety", "🛟 Bezpieczeństwo"),
     "con_safe": ("Life jackets • Local captain", "Kamizelki ratunkowe • Lokalny kapitan"),
+    "con_lang_t": ("🗣️ Languages", "🗣️ Języki"),
+    "con_lang": ("English • Kiswahili • Polski", "Angielski • Suahili • Polski"),
     "rights": ("All rights reserved.", "Wszelkie prawa zastrzeżone."),
     "privacy": ("Privacy", "Prywatność"),
     "wa_sticky": ("Book on WhatsApp", "Rezerwacja WhatsApp"),
@@ -306,8 +309,8 @@ TOURS = [
          desc=("Take your Zanzibar adventure onto the water in a car-shaped boat. Ask Busara about availability and the experience options for your group.",
                "Przenieś swoją przygodę na Zanzibarze na wodę w łodzi przypominającej samochód. Zapytaj Busarę o dostępność i warianty atrakcji dla Twojej grupy."),
          meta=[("🚗", ("Water car", "Samochód wodny")), ("🌊", ("Ocean", "Ocean")), ("⚡", ("Adventure", "Przygoda"))]),
-    dict(id="horse", cat="fun", img=None, price=None,
-         alt=("", ""), icon="🐎",
+    dict(id="horse", cat="fun", img="horse-beach", price=None,
+         alt=("Child riding a horse along the white-sand beach in Zanzibar", "Dziecko na koniu na białej plaży na Zanzibarze"), icon="🐎",
          title=("Horse Riding (Beach)", "Jazda konna (plaża)"),
          desc=("Beach ride experience (partner activity). We help organize transport & time slot.",
                "Przejażdżka konna po plaży (atrakcja partnerska). Pomagamy zorganizować transport i termin."),
@@ -316,6 +319,7 @@ TOURS = [
 
 # ---------------------------------------------------------------- Gallery
 GALLERY = [
+    ("horse-pier", ("Horse ride on the beach by a stilt restaurant", "Przejażdżka konna po plaży przy restauracji na palach")),
     ("mnemba-island", ("Mnemba Island and a traditional dhow", "Wyspa Mnemba i tradycyjna łódź dhow")),
     ("dolphins", ("Dolphins near Mnemba", "Delfiny w okolicach Mnemba")),
     ("baraka-turtles", ("Sea turtles at Baraka", "Żółwie morskie w Baraka")),

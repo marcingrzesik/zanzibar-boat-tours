@@ -461,6 +461,7 @@ def contact(p):
             <div class="contactInfo"><strong>{p.s('con_loc_t')}</strong><span>{p.s('con_loc')}</span></div>
             <div class="contactInfo"><strong>{p.s('con_hours_t')}</strong><span>{p.t(SITE['hours'])} • {p.s('con_hours_s')}</span></div>
             <div class="contactInfo"><strong>{p.s('con_safe_t')}</strong><span>{p.s('con_safe')}</span></div>
+            <div class="contactInfo"><strong>{p.s('con_lang_t')}</strong><span>{p.s('con_lang')}</span></div>
           </div>
         </div>
       </div>
