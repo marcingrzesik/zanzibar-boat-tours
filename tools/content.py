@@ -92,7 +92,7 @@ S = {
     "trust2": (["Families & couples", "Honeymoon & birthdays", "Small groups", "Chill + authentic Zanzibar vibes"],
                ["Rodzin i par", "Podróży poślubnych i urodzin", "Małych grup", "Relaksu i autentycznego klimatu Zanzibaru"]),
     "trust3_t": ("Languages", "Języki"),
-    "trust3": (["English", "Polish (optional)", "Swahili"], ["Angielski", "Polski (opcjonalnie)", "Suahili"]),
+    "trust3": (["English", "Swahili", "Polish (optional)"], ["Angielski", "Suahili", "Polski (opcjonalnie)"]),
 
     # how it works
     "how_h": ("How booking works", "Jak działa rezerwacja"),
@@ -232,7 +232,7 @@ S = {
     "con_safe_t": ("🛟 Safety", "🛟 Bezpieczeństwo"),
     "con_safe": ("Life jackets • Local captain", "Kamizelki ratunkowe • Lokalny kapitan"),
     "con_lang_t": ("🗣️ Languages", "🗣️ Języki"),
-    "con_lang": ("English • Polish (optional) • Swahili", "Angielski • Polski (opcjonalnie) • Suahili"),
+    "con_lang": ("English • Swahili • Polish (optional)", "Angielski • Suahili • Polski (opcjonalnie)"),
     "rights": ("All rights reserved.", "Wszelkie prawa zastrzeżone."),
     "privacy": ("Privacy", "Prywatność"),
     "wa_sticky": ("Book on WhatsApp", "Rezerwacja WhatsApp"),
