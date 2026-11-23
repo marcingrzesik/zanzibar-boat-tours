@@ -232,7 +232,7 @@ S = {
     "con_safe_t": ("🛟 Safety", "🛟 Bezpieczeństwo"),
     "con_safe": ("Life jackets • Local captain", "Kamizelki ratunkowe • Lokalny kapitan"),
     "con_lang_t": ("🗣️ Languages", "🗣️ Języki"),
-    "con_lang": ("English • Kiswahili • Polski", "Angielski • Suahili • Polski"),
+    "con_lang": ("English • Polish (optional) • Swahili", "Angielski • Polski (opcjonalnie) • Suahili"),
     "rights": ("All rights reserved.", "Wszelkie prawa zastrzeżone."),
     "privacy": ("Privacy", "Prywatność"),
     "wa_sticky": ("Book on WhatsApp", "Rezerwacja WhatsApp"),
